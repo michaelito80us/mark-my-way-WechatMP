@@ -1,0 +1,50 @@
+.landing-background {
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(3, 3, 3, 0) 0%, rgba(255, 255, 255, 0) 100%);  
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 110%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-arrow{
+  height: 200rpx;
+  width: 200rpx;
+  display: flex;
+  justify-content: bottom;
+}
+
+.landing-title{
+  color: white;
+  font-size: 80rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+  padding: 20rpx;
+}
+
+.sub-title{
+  color: white;
+  font-size: 45rpx;
+  padding: 20rpx;
+}
+.btn-arrow-1{
+  height: 200rpx;
+  weight: 200rpx;
+}
+
+.btn-arrow-2{
+  height: 300rpx;
+  weight: 300rpx;
+}
+
+.btn-arrow-3{
+  height: 400rpx;
+  weight: 400rpx;
+}
+
+.arrow{
+  text-align: center;
+  justify-content: center;
+  margin-top: 200rpx;
+}
