@@ -1,4 +1,3 @@
-// pages/trips/create/create.js
 Page({
 
   /**

@@ -1,4 +1,4 @@
-// pages/landing/landing.js
+// pages/trip/show/show.js
 Page({
 
   /**
@@ -6,12 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  goToHomePage() {
-    wx.redirectTo({
-      url: '/pages/trips/create/create',
-    })
   },
 
   /**

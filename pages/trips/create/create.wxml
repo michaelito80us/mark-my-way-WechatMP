@@ -1,2 +1,26 @@
-<!--pages/trips/create/create.wxml-->
-<text>pages/trips/create/create.wxml</text>
+<!--pages/create/create.wxml-->
+
+<view class="container">
+
+  <view class="map">
+    <image src="/images/map-demo.jpg" style="height:100%"></image>
+  </view>
+
+  <view>
+    <form bindsubmit="">
+      <view class="section thin">
+        <view class="start_point">Start Point</view>
+        <input name="current_point" placeholder="your location" placeholder-class="roboto" />
+      </view>
+
+      <view class="section thin">
+        <view class="thin">Duration</view>
+        <picker mode="time" class="weui-input" name="Time" bindchange="changeTime" >
+          {{selectedTime||'Pick a Time (hour/min)'}}
+        </picker>
+      </view>
+    </form>
+  </view>
+
+  <button class="button thin" type="submit" bindtap="goToTripStopList">PLAN</button>
+</view>

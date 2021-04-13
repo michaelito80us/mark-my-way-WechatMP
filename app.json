@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs",
     "pages/landing/landing",
-    "pages/trips/create/create"
+    "pages/trips/create/create",
+    "pages/trips/show/show",
+    "pages/trip-stop/show",
+    "pages/stops/show/show"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,1 +1,52 @@
-/* pages/trips/create/create.wxss */
+/* pages/create/create.wxss */
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+}
+
+.map {
+  height: 60%;
+}
+
+.section {
+  color: #0044e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section input {
+  border: 1px solid #0044e0;
+  border-radius: 6px;
+  color: light gray;
+  padding: 4px 20px;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.weui-input {
+  border: 1px solid #0044e0;
+  border-radius: 6px;
+  color: light gray;
+  padding: 4px 20px;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.button {
+  border-radius: 50px;
+  background-color: #0044e0;
+  color: white;
+  margin-bottom: 80rpx;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: 0;
+}
