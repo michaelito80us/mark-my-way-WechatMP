@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  goToStopDetail() {
+    wx.redirectTo({
+      url: '/pages/stops/show/show',
+    })
+  },
 })
