@@ -42,7 +42,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.16.0",
   "appid": "wxae114df4a298f828",
-  "projectname": "mark-my-way",
+  "projectname": "mark-my-way-wechatmp",
   "debugOptions": {
     "hidedInDevtools": []
   },
