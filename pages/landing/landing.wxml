@@ -1,2 +1,11 @@
-<!--pages/landing/landing.wxml-->
-<text>pages/landing/landing.wxml</text>
+<view class="landing-background" style="background-image: url('https://images.unsplash.com/photo-1477348188230-3b118ccff845?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80')">
+  <view class="landing-content">
+    <view class="landing-title">Mark My Way</view>
+    <view class="sub-title">Amazing places are just a few steps away.</view>
+    <view class="arrow">
+      <image class='btn-arrow-1' src="/images/arrow-gray.svg"></image>
+      <image class='btn-arrow-2' src="/images/arrow-gray.svg"></image>
+      <image class='btn-arrow-3' bindtap="goToHomePage" src="/images/arrow-blue.svg"></image>
+    </view>
+  </view>
+</view>

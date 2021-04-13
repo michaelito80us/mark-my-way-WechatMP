@@ -24,8 +24,3 @@
 
   <button class="button thin" type="submit" bindtap="goToTripStopList">PLAN</button>
 </view>
-
-
-
-
-

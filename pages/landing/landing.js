@@ -8,6 +8,12 @@ Page({
 
   },
 
+  goToHomePage() {
+    wx.redirectTo({
+      url: '/pages/trips/create/create',
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
