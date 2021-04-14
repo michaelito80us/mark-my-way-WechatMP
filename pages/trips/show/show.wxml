@@ -1,2 +1,31 @@
-<!--pages/trip/show/show.wxml-->
-<text>pages/trip/show/show.wxml</text>
+<view class="container">
+
+  <view class="map">
+    <image src="/images/map-demo.jpg" style="height:100%"></image>
+  </view>
+
+  <view class="list">
+    <view class="title">
+      <view class="trip">My trip</view>
+    </view>
+        <view class="card">
+          <!-- wx:for="{{stops}}" wx:for-item="stop" data-id="{{stop.id}} -->
+            <view class="section">
+              <view>Majestic Theater</view>
+              <view>30 mins</view>
+            </view>
+            <view class="section">
+              <view>WestGate Mall</view>
+              <view>20 mins</view>
+            </view>
+            <view class="section">
+              <view>Shanghai Natural History Museum</view>
+              <view>40 mins</view>
+            </view>
+          </view>
+        </view>
+    
+
+    <button class="button thin" type="submit" bindtap="go">Let's go</button>
+ 
+</view>
