@@ -7,7 +7,11 @@ Page({
   data: {
 
   },
-
+  go() {
+    wx.redirectTo({
+      url: '/pages/trip-stop/show',
+    })
+  },
   /**
    * Lifecycle function--Called when page load
    */

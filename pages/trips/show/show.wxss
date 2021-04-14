@@ -1,1 +1,20 @@
-/* pages/trip/show/show.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+}
+
+.map {
+  height: 60%;
+}
+
+.list-container{
+  display: flex;
+  align-items: center;
+  padding-bottom: 250px;
+  
+}

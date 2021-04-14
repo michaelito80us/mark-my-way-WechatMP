@@ -1,2 +1,21 @@
-<!--pages/trip/show/show.wxml-->
-<text>pages/trip/show/show.wxml</text>
+<view class="container">
+
+  <view class="map">
+    <image src="/images/map-demo.jpg" style="height:100%"></image>
+  </view>
+
+  <view class="list">
+    <view class="list-container">
+      <view>My trip</view>
+        <view class="card" wx:for="{{stops}}" wx:for-item="stop" data-id="{{stop.id}}">
+            <view class="section">
+              <view>{{stop.name}}</view>
+              <view>{{stop.visit_time}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+  <view class="btn-area">
+    <button size='mini' style='background-color: blue' form-type="submit" bindtap="go">Let's go</button>
+  </view>
+</view>

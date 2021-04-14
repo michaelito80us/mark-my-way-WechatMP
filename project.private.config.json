@@ -17,6 +17,17 @@
           "pathName": "pages/trips/create/create",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "trip stop show",
+          "pathName": "pages/trips/show/show",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "landing",
+          "pathName": "pages/landing/landing",
+          "scene": null
         }
       ]
     }

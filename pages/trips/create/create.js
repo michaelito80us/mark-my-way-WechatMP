@@ -7,6 +7,14 @@ Page({
 
   },
 
+  goToTripStopList() {
+    wx.redirectTo({
+      url: '/pages/trips/show/show',
+    })
+  },
+
+  
+
   /**
    * Lifecycle function--Called when page load
    */
