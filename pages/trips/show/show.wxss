@@ -12,9 +12,31 @@
   height: 60%;
 }
 
-.list-container{
-  display: flex;
-  align-items: center;
-  padding-bottom: 250px;
-  
+.button {
+  border-radius: 50px;
+  background-color: #0044e0;
+  color: white;
+  margin-bottom: 80rpx;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: 0;
 }
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50rpx;
+  margin-top: 20rpx;
+}
+
+.list {
+  width: 650rpx;
+  padding-bottom: 180rpx;
+}
+.section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+
+
