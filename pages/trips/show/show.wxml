@@ -1,8 +1,6 @@
 <view class="container">
 
-  <view class="map">
-    <image src="/images/map-demo.jpg" style="height:100%"></image>
-  </view>
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" circles="{{circles}}" bindregionchange="regionchange" show-location style="width:100% ; height: 400px;"></map>
 
   <view class="list">
     <view class="title">
@@ -11,16 +9,16 @@
         <view class="card">
           <!-- wx:for="{{stops}}" wx:for-item="stop" data-id="{{stop.id}} -->
             <view class="section">
-              <view>Majestic Theater</view>
-              <view>30 mins</view>
+              <view class="name">Majestic Theater</view>
+              <view class="mins">30 mins</view>
             </view>
             <view class="section">
-              <view>WestGate Mall</view>
-              <view>20 mins</view>
+              <view class="name">WestGate Mall</view>
+              <view class="mins">20 mins</view>
             </view>
             <view class="section">
-              <view>Shanghai Natural History Museum</view>
-              <view>40 mins</view>
+              <view class="name">Shanghai Natural History Museum for adults and kids</view>
+              <view class="mins">40 mins</view>
             </view>
           </view>
         </view>

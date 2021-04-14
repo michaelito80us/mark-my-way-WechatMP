@@ -9,7 +9,7 @@ Page({
   },
 
   goToHomePage() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/trips/create/create',
     })
   },
