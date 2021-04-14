@@ -50,3 +50,13 @@
   padding-right: 0;
   box-sizing: 0;
 }
+
+.map_container {
+  height: 260px;
+  width: 100%;
+}
+ 
+.map {
+  height: 100%;
+  width: 100%;
+}

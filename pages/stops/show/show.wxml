@@ -14,8 +14,8 @@
   </view>
 
   <view class="row-title">
-    <view class="h2 bold">Sunny Cafe{{stop.name}}</view>
-    <view class=" tag thin">cafe/pub{{stop.catagory}}</view>
+    <view class="h2 bold">Shanghai Natural History Museum for adults and kids{{stop.name}}</view>
+    <view class="tag thin">cafe/pub{{stop.catagory}}</view>
   </view>
 
   <view class="row">
