@@ -19,14 +19,24 @@
           "scene": null
         },
         {
-          "name": "trip stop show",
-          "pathName": "pages/trips/show/show",
+
+          "name": "landing",
+          "pathName": "pages/landing/landing",
+
           "query": "",
           "scene": null
         },
         {
-          "name": "landing",
-          "pathName": "pages/landing/landing",
+
+          "name": "trip-stop show",
+          "pathName": "pages/trip-stop/show",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "stop detail",
+          "pathName": "pages/stops/show/show",
+
           "scene": null
         }
       ]

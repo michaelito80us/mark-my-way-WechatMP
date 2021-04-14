@@ -1,1 +1,43 @@
 /* pages/stops/show/show.wxss */
+.container-big {
+  height: 100vh;
+  padding: 30rpx 60rpx;
+  box-sizing: border-box;
+}
+
+swiper {
+  height: 260px;
+}
+
+.row-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 8rpx;
+}
+
+.h2 {
+  font-size: large;
+}
+
+.row {
+  display: flex;
+  padding: 12rpx 0;
+  color: rgba(26, 0, 233, 1.00)
+}
+
+.tag {
+  border: 1px solid rgba(26, 0, 233, 1.00);
+  border-radius: 4px;
+  padding: 6rpx 12rpx
+}
+
+.stop-detail-icon {
+  height: 50rpx;
+  width: 50rpx;
+  margin-right: 8rpx
+}
+
+.p {
+  color: rgba(26, 0, 233, 1.00);
+  padding: 6rpx 12rpx
+}

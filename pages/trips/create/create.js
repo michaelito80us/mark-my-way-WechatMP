@@ -69,5 +69,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  goToTripStopList() {
+    wx.redirectTo({
+      url: '/pages/trips/show/show',
+    })
   }
 })
