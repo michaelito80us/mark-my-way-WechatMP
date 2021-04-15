@@ -6,7 +6,15 @@
          duration="1000" >
         <block wx:for="{{3}}" wx:key="index">
           <swiper-item>
-            <view class="swiper-item"><image src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Y2FmZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
+            <view class="swiper-item"><image src="https://fastly.4sqi.net/img/general/width960/131516486_11s3tgdMwqYT7JTZKkU6hEbNPM1eRaKItWWNqRVtwb8.jpg"/>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="swiper-item"><image src="https://ak-d.tripcdn.com/images/0105q120008h6vyufDF5C_C_760_506.jpg"/>
+            </view>
+          </swiper-item>
+          <swiper-item>
+            <view class="swiper-item"><image src="https://ak-d.tripcdn.com/images/0106e120008h6xh84119A_C_760_506.jpg"/>
             </view>
           </swiper-item>
         </block>

@@ -6,26 +6,17 @@
     <image src="/images/map-demo.jpg" style="height:100%"></image>
   </view> -->
 
-  <map 
-  id="map" 
-  longitude="{{longitude}}" 
-  latitude="{{latitude}}" 
-  scale="14" 
-  controls="{{controls}}" 
-  bindcontroltap="controltap" 
-  markers="{{markers}}" 
-  bindmarkertap="markertap" 
-  polyline="{{polyline}}" 
-  circles="{{circles}}" 
-  bindregionchange="regionchange" 
-  show-location style="width:100% ; height: 400px;">
-</map>
+  <map id="map" class="map-plan-trip" longitude="{{map.longitude}}" latitude="{{map.latitude}}" scale="14" bindregionchange="regionChange" show-location>
+    <cover-image class="map-pin" src="/images/pin.png"></cover-image>
+
+    <cover-image class="map-cur" src="/images/location-cur.png" bindtap="getLocation"></cover-image>
+  </map>
 
   <view>
     <form bindsubmit="">
       <view class="section thin">
         <view class="start_point">Start Point</view>
-        <input name="current_point" placeholder="your location" placeholder-class="roboto" />
+        <input name="current_point" placeholder="your location" value="{{addressDetails}}" placeholder-class="roboto" />
       </view>
 
       <view class="section thin">
