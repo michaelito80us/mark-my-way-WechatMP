@@ -9,7 +9,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "Mark My Way",
     "navigationBarTextStyle":"black"
   },
   "permission": {
@@ -17,7 +17,6 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

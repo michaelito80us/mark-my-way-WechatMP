@@ -60,3 +60,29 @@
   height: 100%;
   width: 100%;
 }
+
+.map-plan-trip {
+  width:100%; 
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -40rpx;
+  margin-left: -40rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.map-cur {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}

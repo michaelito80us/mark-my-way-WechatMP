@@ -32,7 +32,7 @@ App({
     host: {
 
       dev: "http://localhost:3000/",
-      prod: "https://foodie-pairing.herokuapp.com/"
+      prod: "https://mark-my-way.wogengapp.cn/"
     },
     api: 'api/v1/'
   },

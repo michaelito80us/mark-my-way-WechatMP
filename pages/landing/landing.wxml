@@ -12,7 +12,7 @@
 
   <view class="landing-bottom">
     <view class="arrow">
-      <image class='btn-arrow-3' bindtap="goToHomePage" src="/images/arrowWhite.svg"></image>
+      <image class='btn-arrow-3' bindtap="goToHomePage" src="/images/ArrowWhite.svg"></image>
     </view>
   </view>
   

@@ -5,14 +5,11 @@ Page({
    * Page initial data
    */
   data: {
-    addmissage: '选的位置',
-    // markers	 Array	标记点
-    stitle:'故宫',
+    images: ['https://ak-d.tripcdn.com/images/0105q120008h6vyufDF5C_C_760_506.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/201907_Westgate_Mall_Shanghai.jpg/3584px-Mapcarta.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Shanghai_Natural_History_Museum_%28New%29_01.JPG/2785px-Mapcarta.jpg'],
     latitude: "",
     longitude: "",
     scale: 14,
     markers: [],
-    //controls控件 是左下角圆圈小图标,用户无论放大多少,点这里可以立刻回到当前定位(控件（更新一下,即将废弃，建议使用 cover-view 代替）)
     controls: [{
       id: 1,
       iconPath: '/images/locaiton.png',
