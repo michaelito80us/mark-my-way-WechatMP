@@ -1,29 +1,12 @@
-Page({
+var QQMapWX = require('../../../libs/qqmap-wx-jssdk');
+var qqmapsdk;
 
+Page({
   /**
    * Page initial data
    */
   data: {
-    addmissage: '选的位置',
-    // markers	 Array	标记点
-    stitle:'故宫',
-    latitude: "",
-    longitude: "",
-    scale: 14,
-    markers: [],
-    //controls控件 是左下角圆圈小图标,用户无论放大多少,点这里可以立刻回到当前定位(控件（更新一下,即将废弃，建议使用 cover-view 代替）)
-    controls: [{
-      id: 1,
-      iconPath: '/images/locaiton.png',
-      position: {
-        left: 15,
-        top: 260 - 50,
-        width: 40,
-        height: 40
-      },
-      clickable: true
-    }],
-    distanceArr: []
+    selectedLocation: {}
   },
 
 
@@ -33,26 +16,75 @@ Page({
     })
   },
 
-  
-
-  /**
-   * Lifecycle function--Called when page load
-   */
   onLoad: function (options) {
-    var that = this
-    //获取当前的地理位置、速度
-    wx.getLocation({
-      type: 'wgs84', 
-      success: function (res) {
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude,
- 
+    qqmapsdk = new QQMapWX({
+      key: 'XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD'
+    });
+    this.getLocation()
+  },
+
+  regionChange(e) {
+    const { causedBy, type } = e.detail
+    if (causedBy == 'drag' && type == 'end' ) {
+      this.reverseGeocode()
+    }
+  },
+
+  reverseGeocode() {
+    const that = this
+    this.mapCtx = wx.createMapContext('map')
+    this.mapCtx.getCenterLocation({
+      type: 'gcj02',
+      success(res) {
+        const { latitude, longitude } = res
+        const selectedLocation = { latitude, longitude }
+        qqmapsdk.reverseGeocoder({
+          location: { latitude, longitude },
+          success(res) {
+            that.setData({ addressDetails: res.result.address })
+          }
         })
+        that.setData({ selectedLocation })
       }
     })
-
   },
+
+  getLocation(){
+    const that = this
+    wx.getLocation({
+      success: function (res) {
+        console.log(res)
+        const { latitude, longitude } = res
+        const map = { latitude, longitude }
+
+        qqmapsdk.reverseGeocoder({
+          location: { latitude, longitude },
+          success(res) {
+            that.setData({ addressDetails: res.result.address })
+          }
+        })
+
+        wx.createMapContext('map').moveToLocation({
+          latitude, longitude
+        })
+        
+        that.setData({ map })
+      }
+    })
+  },
+
+  getMapCenter() {
+    var mapCtx = wx.createMapContext("map")
+    console.log(mapCtx)
+    mapCtx.getCenterLocation({
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        that.getLocal(latitude, longitude)
+      }
+    }) 
+  },
+
   bindcontroltap(e) {
     var that = this;
     if (e.controlId == 1) {
@@ -62,18 +94,15 @@ Page({
         scale: 14,
       })
     }
+    
   },
-
-
-  
-  
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
-
-  },
+  onReady: function(e) {
+  //  this.mapCtx = wx.createMapContext('map')
+   },
 
   /**
    * Lifecycle function--Called when page show
