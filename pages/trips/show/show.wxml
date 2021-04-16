@@ -1,29 +1,34 @@
-<view class="container">
+<view class="trip-container">
+  <map id="map" subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD"
+    longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" style="width:100% ; height: 400px;" show-location show-compass>
+    <cover-view class="toggler" bindtap="changeView">
+      <image src="/images/list{{listView?'-active':''}}.svg" mode="aspectFit"></image>
+      <image src="/images/grid{{listView?'':'-active'}}.svg" mode="aspectFit"></image>
+    </cover-view>
+  </map>
 
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" circles="{{circles}}" bindregionchange="regionchange" show-location style="width:100% ; height: 400px;"></map>
-
-  <view class="list">
-    <view class="title">
-      <view class="trip">My trip</view>
-    </view>
-        <view class="card">
-          <!-- wx:for="{{stops}}" wx:for-item="stop" data-id="{{stop.id}} -->
-            <view class="section">
-              <view class="name">Majestic Theater</view>
-              <view class="mins">30 mins</view>
-            </view>
-            <view class="section">
-              <view class="name">WestGate Mall</view>
-              <view class="mins">20 mins</view>
-            </view>
-            <view class="section">
-              <view class="name">Shanghai Natural History Museum</view>
-              <view class="mins">40 mins</view>
-            </view>
-          </view>
+  <view class="list" style="padding-bottom: 80rpx;">
+    <view style="padding: 0 40rpx;">
+      <view class="title">
+        <view class="trip">Itinerary</view>
+      </view>
+      <view class="card" wx:if="{{listView}}">
+        <view class="section" wx:for="{{trip.stops}}" wx:key="index">
+          <view class="name">{{item.name}}</view>
+          <view class="mins">{{item.visit_time}} min</view>
         </view>
+      </view>
+    </view>
     
-
-    <button class="button thin" type="submit" bindtap="go">Let's go</button>
- 
+    <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" />
+    
+    <view class="map-footer">
+      <view class="walk-btn" bindtap="startTrip">
+        <image src="/images/{{trip.active?'stop':'walking'}}.svg" mode="aspectFit"></image>
+      </view>
+      <!-- <button class="button thin" style="margin-top: 50rpx;" type="submit" bindtap="go">Let's go</button> -->
+      <view wx:if="{{selectedStop}}" class="nav-btn" bindtap="showRoute">Show route</view>
+    </view>
+  </view>
+  
 </view>

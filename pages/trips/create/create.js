@@ -2,17 +2,46 @@ var QQMapWX = require('../../../libs/qqmap-wx-jssdk');
 var qqmapsdk;
 
 Page({
-  /**
-   * Page initial data
-   */
   data: {
-    selectedLocation: {}
+    selectedLocation: {},
+    hours: [0,1,2,3,4,5,6,7,8,9,10],
+    minutes: [0,15,30,45]
   },
 
+  changePicker(e) {
+    const [hoursIndex, minutesIndex] = e.detail.value
+    const hours = this.data.hours[hoursIndex]
+    const minutes = this.data.minutes[minutesIndex]
+    const duration = hours * 60 + minutes
+    this.setData({ duration })
+  },
+
+  bindTimeChange: function(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
 
   goToTripStopList() {
-    wx.navigateTo({
-      url: '/pages/trips/show/show',
+    const { latitude, longitude } = this.data.selectedLocation
+    const { duration } = this.data
+    const url = getApp().getHost()+'trips'
+    const trip = { 
+      duration: duration, 
+      start_lat: latitude, 
+      start_lon: longitude, 
+      user_id: getApp().globalData.userId 
+    }
+    wx.request({
+      url, method: 'POST', data: { trip },
+      success(res){
+        console.log("am I gonna walk?", res)
+        if(res.statusCode === 200) {
+          wx.navigateTo({
+            url: `/pages/trips/show/show?id=${res.data.trip_id}`,
+          })
+        }
+      }
     })
   },
 
@@ -53,9 +82,8 @@ Page({
     const that = this
     wx.getLocation({
       success: function (res) {
-        console.log(res)
         const { latitude, longitude } = res
-        const map = { latitude, longitude }
+        const selectedLocation = { latitude, longitude }
 
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
@@ -67,8 +95,7 @@ Page({
         wx.createMapContext('map').moveToLocation({
           latitude, longitude
         })
-        
-        that.setData({ map })
+        that.setData({ selectedLocation })        
       }
     })
   },
@@ -146,9 +173,4 @@ Page({
 
   },
 
-  goToTripStopList() {
-    wx.redirectTo({
-      url: '/pages/trips/show/show',
-    })
-  }
 })

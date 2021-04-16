@@ -86,3 +86,13 @@
   width: 80rpx;
   height: 80rpx;
 }
+
+.picker-container {
+  width: 100%;
+  height: 300rpx;
+}
+
+.picker-item {
+  display: flex;
+  justify-content: center;
+}

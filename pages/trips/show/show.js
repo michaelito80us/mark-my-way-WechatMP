@@ -1,42 +1,71 @@
-const normalCallout = {
-  id: 1,
-  latitude: 23.098994,
-  longitude: 113.322520,
-  iconPath: '/images/pin.png',
-  width: 40,
-  height: 40
-}
-
-const customCallout1 = {
-  id: 2,
-  latitude: 23.097994,
-  longitude: 113.323520,
-  iconPath: '/images/pin.png',
-  width: 40,
-  height: 40
-}
-
-const customCallout3 = {
-  id: 3,
-  latitude: 23.095994,
-  longitude: 113.325520,
-  iconPath: '/images/pin.png',
-  width: 40,
-  height: 40
-}
-
-const allMarkers = [normalCallout, customCallout1, customCallout3]
-
 // pages/trip/show/show.js
 Page({
   /**
    * Page initial data
    */
   data: {
-    latitude: 23.096994,
-    longitude: 113.324520,
+    tripStarted: false,
+    listView: true,
     scale: 14,
-    markers: allMarkers
+    markers: []
+  },
+
+  changeView() {
+    this.setData({ listView: !this.data.listView })
+  },
+
+  markertap(e) {
+    const stopId = e.detail.markerId
+    const { stops } = this.data.trip
+    const selectedId = stops.findIndex(s=>s.id==stopId)
+    const selectedStop = stops[selectedId]
+    this.setData({ selectedStop })
+  },
+
+  showRoute() {
+    const { selectedStop } = this.data
+    wx.openLocation({
+      latitude: selectedStop.lat,
+      longitude: selectedStop.lon,
+      name: selectedStop.name, 
+      address: selectedStop.address
+    })
+  },
+
+  startTrip() {
+    const that = this
+    const { trip } = this.data
+    if (trip.active) {
+      wx.showModal({
+        content: 'Stop your trip?',
+        confirmText: 'Confirm',
+        cancelText: 'Back',
+        success(res) {
+          if (res.confirm) {
+            that.changeTripStatus()
+          }
+        }
+      })
+    } else {
+      that.changeTripStatus()
+    }
+  },
+
+  changeTripStatus() {
+    const that = this
+    const { trip } = this.data
+    const tripData = { active: !trip.active }
+    wx.showLoading()
+    wx.request({
+      url: `${getApp().getHost()}trips/${trip.id}`,
+      method: 'PUT',
+      data: { trip: tripData },
+      success(res) {
+        trip.active = res.data.trip.active
+        that.setData({ trip })
+        wx.hideLoading()
+      }
+    })
   },
 
   go() {
@@ -48,68 +77,53 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.getTrip()
+    this.getCurrentLocation()
+  },
+
+  getCurrentLocation() {
     var that = this
-    //获取当前的地理位置、速度
-    // wx.getLocation({
-    //   type: 'wgs84', 
-    //   success: function (res) {
-    //     that.setData({
-    //       latitude: res.latitude,
-    //       longitude: res.longitude,
- 
-    //     })
-    //   }
-    // })
-
-
+    wx.getLocation({
+      type: 'wgs84', 
+      success: function (res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+        })
+      }
+    })
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  loadMap() {
+    const { stops } = this.data.trip
+    const markers = stops.map(stop=>{
+      return { 
+        id: stop.id, 
+        latitude: stop.lat, longitude: stop.lon, 
+        iconPath: '/images/pin.png',
+        width: 40,
+        height: 40,
+        callout: {
+          content: stop.name,
+          fontSize: 16,
+          padding: 16,
+          textAlign: 'center',
+          display: 'BYCLICK'
+        }
+      }
+    })
+    this.setData({ markers })
+    console.log(markers)
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  getTrip() {
+    const that = this
+    wx.request({
+      url: `${getApp().getHost()}trips/${that.options.id}`,
+      success(res) {
+        that.setData({ trip: res.data.trip })
+        that.loadMap()
+      }
+    })
   }
 })
