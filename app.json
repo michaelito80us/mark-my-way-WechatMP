@@ -6,6 +6,9 @@
     "pages/trip-stop/show",
     "pages/stops/show/show"
   ],
+  "usingComponents": {
+    "trip-swiper": "/components/trip-swiper/trip-swiper"
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",

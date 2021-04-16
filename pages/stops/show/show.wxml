@@ -4,36 +4,34 @@
     <swiper
         indicator-dots="true" indicator-color =" rgba(26, 0, 233, 1.00)" autoplay="true" circular="{{circular}}" 
          duration="1000" >
-        <block wx:for="{{3}}" wx:key="index">
-          <swiper-item>
-            <view class="swiper-item"><image src="https://fastly.4sqi.net/img/general/width960/131516486_11s3tgdMwqYT7JTZKkU6hEbNPM1eRaKItWWNqRVtwb8.jpg"/>
-            </view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item"><image src="https://ak-d.tripcdn.com/images/0105q120008h6vyufDF5C_C_760_506.jpg"/>
-            </view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item"><image src="https://ak-d.tripcdn.com/images/0106e120008h6xh84119A_C_760_506.jpg"/>
-            </view>
-          </swiper-item>
-        </block>
+        <swiper-item>
+          <view class="swiper-item"><image src="{{stop.photo1}}"/>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="swiper-item"><image src="{{stop.photo2}}"/>
+          </view>
+        </swiper-item>
+        <swiper-item>
+          <view class="swiper-item"><image src="{{stop.photo3}}"/>
+          </view>
+        </swiper-item>
       </swiper>
   </view>
 
   <view class="row-title">
-    <view class="h2 bold">Shanghai Natural History Museum for adults and kids{{stop.name}}</view>
-    <view class="tag thin">cafe/pub{{stop.catagory}}</view>
+    <view class="h2 bold">{{stop.name}}</view>
+    <view class="tag thin">{{stop.category}}</view>
   </view>
 
   <view class="row">
     <image class="stop-detail-icon" src="/images/location_point.svg"></image>
-    <view class="thin">133 Hengshan Road, Xuhui District{{stop.address}}</view>
+    <view class="thin">{{stop.address}}</view>
   </view>
 
   <view class="row">
     <image class="stop-detail-icon" src="/images/time_duration.svg"></image>
-    <view class="thin">suggested duration: 20 mins{{stop.visit_time}}</view>
+    <view class="thin">suggested duration: {{stop.visit_time}} mins</view>
   </view>
 
   <view class="p thin">

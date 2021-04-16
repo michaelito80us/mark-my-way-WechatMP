@@ -1,6 +1,5 @@
 // pages/stops/show/show.js
 Page({
-
   /**
    * Page initial data
    */
@@ -12,7 +11,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const that = this
+    wx.request({
+      url: `${getApp().getHost()}stops/${options.id}`,
+      success(res) {
+        console.log(res)
+        that.setData({ stop: res.data.stop })
+      }
+    })
   },
 
   /**

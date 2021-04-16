@@ -93,10 +93,4 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-  goToStopDetail() {
-    wx.navigateTo({
-      url: '/pages/stops/show/show',
-    })
-  },
 })

@@ -1,6 +1,6 @@
 // app.js
 let dev;
-dev = true
+// dev = true
  // dev means developer mode. not live mode
 
 App({
@@ -30,7 +30,6 @@ App({
     userInfo: {},
     env: dev?'dev':'prod',
     host: {
-
       dev: "http://localhost:3000/",
       prod: "https://mark-my-way.wogengapp.cn/"
     },

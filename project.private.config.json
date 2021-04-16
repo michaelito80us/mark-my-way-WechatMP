@@ -33,12 +33,13 @@
         {
           "name": "stop detail",
           "pathName": "pages/stops/show/show",
-          "query": "",
+          "query": "id=3",
           "scene": null
         },
         {
           "name": "pages/trips/show/show",
           "pathName": "pages/trips/show/show",
+          "query": "id=7",
           "scene": null
         }
       ]
