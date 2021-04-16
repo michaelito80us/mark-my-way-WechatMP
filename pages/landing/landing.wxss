@@ -1,9 +1,9 @@
 .landing-background {
   height: 100vh;
   background: linear-gradient(180deg, rgba(3, 3, 3, 0) 0%, rgba(255, 255, 255, 0) 100%);  
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: auto 110%;
+  background-size: auto 100%;
   /* justify-content: center; */
 }
 
@@ -11,10 +11,11 @@
   color: white;
   font-size: 80rpx;
   font-weight: bold;
+  margin-top: 800rpx;
 }
 
 .landing-title-small{
-  color: white;
+  color: rgba(26, 0, 233, 1.00);
   font-size: 40rpx;
   margin-top: 10rpx;
 }

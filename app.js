@@ -1,4 +1,10 @@
 // app.js
+import { promisifyAll } from 'miniprogram-api-promise';
+
+const wxp = {}
+// promisify all wx's api
+promisifyAll(wx, wxp)
+
 let dev;
 // dev = true
  // dev means developer mode. not live mode
