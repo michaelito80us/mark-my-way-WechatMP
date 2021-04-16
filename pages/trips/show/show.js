@@ -5,7 +5,7 @@ Page({
    */
   data: {
     tripStarted: false,
-    listView: false,
+    listView: true,
     scale: 14,
     markers: []
   },
