@@ -1,4 +1,6 @@
 // pages/trip-stop/show.js
+const app = getApp()
+const url = getApp().getHost() + app.globalData.api
 Page({
 
   /**
@@ -24,12 +26,13 @@ Page({
     distanceArr: []
   },
 
-
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
     var that = this
+    let page = this
+
     //获取当前的地理位置、速度
     wx.getLocation({
       type: 'wgs84', 
@@ -37,11 +40,23 @@ Page({
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
- 
         })
       }
-    })
+    }),
 
+    
+    wx.request({
+      url: `${url}trips/stops`,
+      method: 'GET',
+      success(res){
+        console.log(res)
+        const stops = res.data.stops;
+        page.setData({
+          stops: stops
+        });
+        }
+      }
+    )
 
   },
 
