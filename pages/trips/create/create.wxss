@@ -48,12 +48,12 @@
 
 .button {
   border-radius: 50px;
-  background-color: #0044e0;
-  color: white;
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,1) 11.2%, rgba(108,124,235,1) 55.5%, rgba(219,82,244,1) 99.4% );
   margin-bottom: 80rpx;
   padding-left: 0;
   padding-right: 0;
   box-sizing: 0;
+  color: white;
 }
 
 .map_container {
