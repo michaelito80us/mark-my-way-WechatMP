@@ -14,15 +14,15 @@
 
   <view>
     <form bindsubmit="">
-      <view class="section thin">
+      <view class="section">
         <view class="start_point">Start Point</view>
         <input name="current_point" placeholder="your location" value="{{addressDetails}}" placeholder-class="roboto" />
       </view>
 
-      <view class="section thin">
-        <view class="thin">Duration</view>
-        <!-- <picker mode="time" class="weui-input" value="{{time}}" start="" end="" bindchange="bindTimeChange">
-        </picker> -->
+      <view class="section">
+        <view>Duration</view>
+        <picker mode="multiSelector" class="weui-input" value="{{time}}" start="" end="" bindchange="bindTimeChange">
+        </picker>
         <picker-view class="picker-container" bindchange="changePicker">
           <picker-view-column>
             <view class="picker-item" wx:for="{{hours}}">{{item}}</view>
@@ -39,5 +39,5 @@
     </form>
   </view>
 
-  <button class="button thin" type="submit" bindtap="goToTripStopList">PLAN</button>
+  <button class="button" type="submit" bindtap="goToTripStopList">PLAN</button>
 </view>

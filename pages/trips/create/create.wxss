@@ -31,6 +31,16 @@
   text-align: center;
 }
 
+.picker-box {
+  border: 1px solid #0044e0;
+  border-radius: 6px;
+  color: light gray;
+  padding: 4px 20px;
+  margin-top: 10rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
 .weui-input {
   border: 1px solid #0044e0;
   border-radius: 6px;
