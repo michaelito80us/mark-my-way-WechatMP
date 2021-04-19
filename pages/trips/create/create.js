@@ -4,16 +4,26 @@ var qqmapsdk;
 Page({
   data: {
     selectedLocation: {},
-    hours: [0,1,2,3,4,5,6,7,8,9,10],
-    minutes: [0,15,30,45]
+    hours: '2 hours',
+    minutes: '30 mins',
+    hours: ['0 hour','1 hour','2 hours','3 hours','4 hours','5 hours','6 hours','7 hours','8 hours','9 hours','10 hours'],
+    minutes: ['0 min','15 mins','30 mins','45 mins','60 mins']
   },
 
   changePicker(e) {
     const [hoursIndex, minutesIndex] = e.detail.value
     const hours = this.data.hours[hoursIndex]
+    const hourInt = parseInt(hours.split(' ')[0])
+    console.log('hour',hourInt)
     const minutes = this.data.minutes[minutesIndex]
-    const duration = hours * 60 + minutes
-    this.setData({ duration })
+    const minInt = parseInt(minutes.split(' ')[0])
+    console.log('min',minInt)
+    const duration = hourInt * 60 + minInt
+    this.setData({ 
+      hour: this.data.hours[hoursIndex],
+      min: this.data.minutes[minutesIndex],
+      duration 
+    })
   },
 
   bindTimeChange: function(e) {
