@@ -30,8 +30,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    var that = this
-    let page = this
+    const that = this
+    const { trip } = this.data
+
+    console.log("data", this.data)
+
 
     //获取当前的地理位置、速度
     wx.getLocation({
@@ -44,9 +47,9 @@ Page({
       }
     }),
 
-    
+  
     wx.request({
-      url: `${url}trips/stops`,
+      url: `${getApp().getHost()}trips/${trip.id}`,
       method: 'GET',
       success(res){
         console.log(res)

@@ -6,7 +6,15 @@
     <image src="/images/map-demo.jpg" style="height:100%"></image>
   </view> -->
 
-  <map id="map" subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD" class="map-plan-trip" longitude="{{selectedLocation.longitude}}" latitude="{{selectedLocation.latitude}}" scale="14" bindregionchange="regionChange" show-location>
+  <map 
+  id="map" 
+  subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD" 
+  class="map-plan-trip" 
+  longitude="{{selectedLocation.longitude}}" 
+  latitude="{{selectedLocation.latitude}}" 
+  scale="14" 
+  bindregionchange="regionChange" 
+  show-location>
     <cover-image class="map-pin" src="/images/pin.png"></cover-image>
 
     <cover-image class="map-cur" src="/images/location-cur.png" bindtap="getLocation"></cover-image>
@@ -14,16 +22,15 @@
 
   <view>
     <form bindsubmit="">
-      <view class="section">
-        <view class="start_point">Start Point</view>
+      <view class="start-section">
+        <view class="start_point bold">Start Point</view>
         <input name="current_point" placeholder="your location" value="{{addressDetails}}" placeholder-class="roboto" />
       </view>
 
-      <view class="section">
-        <view>Duration</view>
-        <picker mode="multiSelector" class="weui-input" value="{{time}}" start="" end="" bindchange="bindTimeChange">
-        </picker>
-        <picker-view class="picker-container" bindchange="changePicker">
+      <view class="duration-section">
+        <view class="bold">Duration</view>
+
+        <picker-view class="picker-container" bindchange="changePicker" indicator-style="height: 30px; width: 100px; line-height: 30px; ">
           <picker-view-column>
             <view class="picker-item" wx:for="{{hours}}">{{item}}</view>
           </picker-view-column>
@@ -32,9 +39,6 @@
           </picker-view-column>
         </picker-view>
 
-        <!-- <picker mode="time" class="weui-input" name="Time" bindchange="changeTime" >
-          {{selectedTime||'Pick a Time (hour/min)'}}
-        </picker> -->
       </view>
     </form>
   </view>

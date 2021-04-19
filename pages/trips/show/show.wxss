@@ -3,20 +3,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* padding: 200rpx 0; */
   box-sizing: border-box;
 }
 
-.map {
-  height: 60%;
+
+.map-plan-trip {
+  width:100%; 
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
 .button {
+  position: fixed;
+  bottom: 50rpx;
   border-radius: 50px;
-  background-color: #0044e0;
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,1) 11.2%, rgba(108,124,235,1) 55.5%, rgba(219,82,244,1) 99.4% );
   color: white;
-  /* margin-bottom: 80rpx; */
   padding-left: 0;
   padding-right: 0;
   box-sizing: 0;
@@ -25,13 +32,13 @@
 .title {
   display: flex;
   justify-content: center;
-  margin: 30rpx 0;
+  margin: 10rpx 0;
   font-size: 40rpx;
   font-weight: bold;
 }
 
 .list {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   /* padding-bottom: 180rpx; */
 }
@@ -58,36 +65,25 @@
   align-items: center;
 }
 
-.walk-btn {
-  width: 130rpx;
-  height: 130rpx;
-  border-radius: 50%;
-  box-sizing: border-box;
-  padding: 30rpx;
-  background-color: #0044e0;
-}
-
-.walk-btn image {
-  width: 100%;
-  height: 100%;
-}
 
 .toggler {
   display: flex;
   align-items: center;
-  background-color: white;
+  justify-content: space-around;
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.5) 11.2%, rgba(108,124,235,0.5) 55.5%, rgba(219,82,244,0.5) 99.4% );
   position: absolute;
-  bottom: 20rpx;
-  left: 20rpx;
+  bottom: 10rpx;
+  left: 10rpx;
   width: 120rpx;
   height: 50rpx;
   border-radius: 9999rpx;
-  padding: 20rpx 30rpx;
+  padding: 10rpx 20rpx;
 }
 
-.toggler image {
-  width: 100%;
-  height: 100%;
+
+.img-view {
+  height: 25px;
+  width: 25px;
 }
 
 .nav-btn {
