@@ -41,6 +41,15 @@ Page({
             url: `/pages/trips/show/show?id=${res.data.trip_id}`,
           })
         }
+        else if (res.statusCode === 500) {
+          wx.showModal({
+            title: 'No trips available',
+            content: 'Your location is out of service scope now',
+            showCancel: false,
+            // cancelText: 'Cancel',
+            confirmText: 'Re-plan',
+          })
+        }
       }
     })
   },
