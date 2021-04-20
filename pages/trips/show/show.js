@@ -37,7 +37,7 @@ Page({
     const { trip } = this.data
     if (trip.active) {
       wx.showModal({
-        content: 'Stop your trip?',
+        content: 'End your trip?',
         confirmText: 'Confirm',
         cancelText: 'Back',
         success(res) {
@@ -54,6 +54,7 @@ Page({
   changeTripStatus() {
     const that = this
     const { trip } = this.data
+    console.log('thistrp',trip)
     const tripData = { active: !trip.active }
     wx.showLoading()
     wx.request({
@@ -69,6 +70,8 @@ Page({
   },
 
   go() {
+    const that = this
+    that.startTrip()
     wx.navigateTo({
       url: '/pages/trip-stop/show',
     })
