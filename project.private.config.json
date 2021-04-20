@@ -41,6 +41,12 @@
           "pathName": "pages/trips/show/show",
           "query": "id=7",
           "scene": null
+        },
+        {
+          "name": "pages/stops/show/show",
+          "pathName": "pages/stops/show/show",
+          "query": "id=3",
+          "scene": null
         }
       ]
     }

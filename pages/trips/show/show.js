@@ -8,7 +8,6 @@ Page({
     listView: true,
     scale: 14,
     markers: [],
-    current: 0
   },
 
   changeView() {
@@ -16,6 +15,7 @@ Page({
   },
 
   markertap(e) {
+    console.log(e)
     const stopId = e.detail.markerId
     const { stops } = this.data.trip
     const selectedId = stops.findIndex(s=>s.id==stopId)
@@ -117,7 +117,25 @@ Page({
       }
     })
     this.setData({ markers })
-    console.log(markers)
+    this.includePoints();
+  },
+
+  includePoints(){
+    let that = this
+    var mapCtx = wx.createMapContext("map");
+    let includePointsData = []
+    let {stops} = that.data.trip
+    for (let i = 0; i < stops.length; i++) {
+      includePointsData.push({
+        latitude: stops[i].lat,
+        longitude: stops[i].lon
+      })
+    }
+    console.log('include points data',includePointsData)
+    mapCtx.includePoints({
+      padding: [ 100, 80, 100, 80],
+      points: includePointsData
+    })
   },
 
   getTrip() {
