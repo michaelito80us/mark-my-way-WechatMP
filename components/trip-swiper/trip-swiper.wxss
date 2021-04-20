@@ -16,15 +16,16 @@
   width: 100%
 } */
 .card-stop {
-  height: 30vh;
+  height: 33vh;
   padding: 20rpx;
   display: flex;
   flex-direction: column;
-  margin: 0rpx 20rpx 100rpx 20rpx;
+  margin: 20rpx 20rpx 100rpx 20rpx;
   color: #0044e0;
   border-radius: 8rpx;
-  border: 1px solid #0044e0;
+  /* border: 1px solid #0044e0; */
   box-sizing: border-box;
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.15) 11.2%, rgba(108,124,235,0.15) 55.5%, rgba(219,82,244,0.15) 99.4% );
   /* box-shadow: 0 0 15px rgba(0, 68, 224, 1.00) */
 }
 
@@ -32,6 +33,7 @@
   height: 160px;
   width: 100%;
   object-fit: cover;
+  margin-bottom: 20rpx;
 }
 
 swiper {
@@ -45,4 +47,15 @@ swiper {
 .p {
   font-size: 12px;
   right: 2px;
+}
+
+.btn-dir image {
+  height: 40px; 
+  width: 40px;
+  margin-left: 20rpx;
+}
+
+.card-stop-infos {
+  display: flex;
+  justify-content: space-between;
 }
