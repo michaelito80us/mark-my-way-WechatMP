@@ -6,8 +6,8 @@ Page({
     selectedLocation: {},
     hours: '2 hours',
     minutes: '30 mins',
-    hours: ['0 hour','1 hour','2 hours','3 hours','4 hours','5 hours','6 hours','7 hours','8 hours','9 hours','10 hours'],
-    minutes: ['0 min','15 mins','30 mins','45 mins','60 mins']
+    hours: ['0 hours','1 hour','2 hours','3 hours','4 hours','5 hours','6 hours','7 hours','8 hours','9 hours','10 hours'],
+    minutes: ['0 mins','15 mins','30 mins','45 mins']
   },
 
   changePicker(e) {
