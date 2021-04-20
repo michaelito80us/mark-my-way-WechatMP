@@ -70,7 +70,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.5) 11.2%, rgba(108,124,235,0.5) 55.5%, rgba(219,82,244,0.5) 99.4% );
+  background-color: rgba(108, 124, 235, 0.5);
+  /* background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.5) 11.2%, rgba(108,124,235,0.5) 55.5%, rgba(219,82,244,0.5) 99.4% ); */
   position: absolute;
   bottom: 10rpx;
   left: 10rpx;
