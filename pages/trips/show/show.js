@@ -67,21 +67,18 @@ Page({
   changeTripStatus() {
     const that = this
     const { trip } = this.data
-    console.log('thistrp',trip)
-    trip.active = !trip.active
+    
     const tripData = { active: !trip.active }
-    console.log(tripData)
+    trip.active = !trip.active
     // wx.showLoading()
     wx.request({
       url: `${getApp().getHost()}trips/${trip.id}`,
       method: 'PUT',
       data: { trip: tripData },
       success(res) {
-        console.log(trip)
         that.setData({
           ['trip']: trip
         })
-        console.log(that.data.trip)
         // console.log(res)
         // trip.active = res.data.trip.active
         // that.setData({ trip })
