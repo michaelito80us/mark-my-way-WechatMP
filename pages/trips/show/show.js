@@ -7,7 +7,8 @@ Page({
     tripStarted: false,
     listView: true,
     scale: 14,
-    markers: []
+    markers: [],
+    current: 0
   },
 
   changeView() {
@@ -19,7 +20,10 @@ Page({
     const { stops } = this.data.trip
     const selectedId = stops.findIndex(s=>s.id==stopId)
     const selectedStop = stops[selectedId]
-    this.setData({ selectedStop })
+    this.setData({
+      current: selectedId, 
+      selectedStop 
+    })
   },
 
   showRoute() {

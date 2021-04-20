@@ -42,6 +42,13 @@
   width: 100%;
   /* padding-bottom: 180rpx; */
 }
+
+.card {
+  padding:  40rpx 40rpx 40rpx 40rpx;
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.1) 11.2%, rgba(108,124,235,0.1) 55.5%, rgba(219,82,244,0.1) 99.4% );
+  border-radius: 8px;
+}
+
 .section {
   display: flex;
   justify-content: space-between;
@@ -50,10 +57,13 @@
 
 .mins{
   flex-shrink: 0;
+  font-size:14px;
+  color: dark gray;
 }
 
 .name{
-  width: 80%;
+  width: 60%;
+  font-size:16px;
 }
 
 .map-footer {
@@ -70,7 +80,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.5) 11.2%, rgba(108,124,235,0.5) 55.5%, rgba(219,82,244,0.5) 99.4% );
+  background-color: rgba(108, 124, 235, 0.5);
   position: absolute;
   bottom: 10rpx;
   left: 10rpx;
@@ -84,11 +94,4 @@
 .img-view {
   height: 25px;
   width: 25px;
-}
-
-.nav-btn {
-  position: absolute;
-  right: 40rpx;
-  font-weight: bold;
-  color: #0044e0;
 }

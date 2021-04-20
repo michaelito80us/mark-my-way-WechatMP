@@ -34,6 +34,7 @@ Page({
 
   goToTripStopList() {
     const { latitude, longitude } = this.data.selectedLocation
+    // const { longitude } = this.data
     const { duration } = this.data
     const url = getApp().getHost()+'trips'
     const trip = { 
@@ -104,6 +105,7 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
+        console.log(res)
         const { latitude, longitude } = res
         console.log('this location here',res)
         const selectedLocation = { latitude, longitude }

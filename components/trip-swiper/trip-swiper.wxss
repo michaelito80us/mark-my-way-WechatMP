@@ -16,7 +16,7 @@
   width: 100%
 } */
 .card-stop {
-  height: 20vh;
+  height: 30vh;
   padding: 20rpx;
   display: flex;
   flex-direction: column;

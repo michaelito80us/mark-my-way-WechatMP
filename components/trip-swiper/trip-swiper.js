@@ -4,7 +4,8 @@ Component({
    * Component properties
    */
   properties: {
-    stops: Array
+    stops: Array,
+    current: Number
   },
 
   /**
