@@ -8,6 +8,7 @@ Page({
     listView: true,
     scale: 14,
     markers: [],
+    
   },
 
   changeView() {
@@ -54,8 +55,12 @@ Page({
         }
       })
     } else {
-      
+
       that.changeTripStatus()
+      that.setData({
+        listView: false
+      })
+
     }
   },
 
@@ -63,6 +68,7 @@ Page({
     const that = this
     const { trip } = this.data
     console.log('thistrp',trip)
+    trip.active = !trip.active
     const tripData = { active: !trip.active }
     console.log(tripData)
     // wx.showLoading()
@@ -71,10 +77,16 @@ Page({
       method: 'PUT',
       data: { trip: tripData },
       success(res) {
+        console.log(trip)
+        that.setData({
+          ['trip']: trip
+        })
+        console.log(that.data.trip)
         // console.log(res)
         // trip.active = res.data.trip.active
         // that.setData({ trip })
         // wx.hideLoading()
+
       }
     })
   },
