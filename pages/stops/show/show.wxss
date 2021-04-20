@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 
-swiper {
-  height: 260px;
+.swiper {
+  height: 200px;
 }
 
 .row-title {
