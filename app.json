@@ -3,7 +3,6 @@
     "pages/landing/landing",
     "pages/trips/create/create",
     "pages/trips/show/show",
-    "pages/trip-stop/show",
     "pages/stops/show/show"
   ],
   "usingComponents": {

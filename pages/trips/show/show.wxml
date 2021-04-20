@@ -1,6 +1,6 @@
 <view class="trip-container">
   <map id="map" subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD" class="map-plan-trip"
-    longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap" style="width:100% ; height: 400px;" show-location show-compass>
+    longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap"  style="width:100% ; height: 400px;" show-location show-compass>
     <cover-view class="toggler" bindtap="changeView">
       <cover-image src="/images/list{{listView?'-active':''}}.png" class="img-view"></cover-image>
       <cover-image src="/images/grid{{listView?'':'-active'}}.png" class="img-view"></cover-image>
@@ -12,20 +12,23 @@
       <view class="title">
         <view class="trip">Itinerary</view>
       </view>
-      <view class="card" wx:if="{{listView}}">
-        <view class="section" wx:for="{{trip.stops}}" wx:key="index">
-          <view class="name">{{item.name}}</view>
-          <view class="mins">{{item.visit_time}} min</view>
+      
+      <scroll-view scroll-y="true" scroll-top="2" show-scrollbar="false" enhanced="true" style="height: 28vh; border-radius: 8px;" wx:if="{{listView}}">
+        <view class="card">
+          <view class="section" wx:for="{{trip.stops}}" wx:key="index">
+            <view class="name">{{item.name}}</view>
+            <view class="mins">{{item.visit_time}} min</view>
+          </view>
         </view>
-      </view>
+      </scroll-view>
     </view>
     
-    <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" />
+    <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" current="{{current}}" />
     
-    <view class="map-footer">
+    <view class="map-footer" wx:if="{{listView}}">
 
-      <button class="button" type="submit" bindtap="go">Let's go</button>
-      <view wx:if="{{selectedStop}}" class="nav-btn" bindtap="showRoute">Show route</view>
+      <button class="button" wx:if="{{listView}}" bindtap="">Start Trip</button>
+      <!-- <view wx:if="{{selectedStop}}" class="nav-btn" bindtap="showRoute">Show route</view> -->
     </view>
   </view>
   

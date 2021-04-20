@@ -20,7 +20,10 @@ Page({
     const { stops } = this.data.trip
     const selectedId = stops.findIndex(s=>s.id==stopId)
     const selectedStop = stops[selectedId]
-    this.setData({ selectedStop })
+    this.setData({
+      current: selectedId, 
+      selectedStop 
+    })
   },
 
   showRoute() {

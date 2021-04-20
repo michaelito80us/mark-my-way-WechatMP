@@ -106,6 +106,7 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
+        console.log(res)
         const { latitude, longitude } = res
         console.log('this location here',res)
         // const selectedLocation = { latitude, longitude }
