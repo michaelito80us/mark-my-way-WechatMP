@@ -72,13 +72,12 @@ Page({
   },
 
   regionChange(e) {
-    const { causedBy, type } = e.detail
-    if (causedBy == 'drag' && type == 'end' ) {
+    if (e.causedBy == 'drag' && e.causedBytype == 'end' ) {
       this.reverseGeocode()
     }
   },
 
-  reverseGeocode() {
+  reverseGeocoder() {
     const that = this
     this.mapCtx = wx.createMapContext('map')
     this.mapCtx.getCenterLocation({
@@ -86,8 +85,6 @@ Page({
       success(res) {
         const { latitude, longitude } = res
         const selectedLocation = { latitude, longitude }
-        console.log('lattttitttude',res.longitude)
-        console.log(res.latitude)
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
           success(res) {
