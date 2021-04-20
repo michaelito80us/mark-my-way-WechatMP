@@ -116,12 +116,12 @@ Page({
           }
         })
 
-        wx.createMapContext('map').moveToLocation({
-          latitude, longitude
-        })
-        that.setData({ selectedLocation })        
-      }
-    })
+    //     wx.createMapContext('map').moveToLocation({
+    //       latitude, longitude
+    //     })
+    //     that.setData({ selectedLocation })        
+    //   }
+    // })
   },
 
   getMapCenter() {
@@ -137,10 +137,9 @@ Page({
   },
 
   bindcontroltap(e) {
-    var that = this;
+    const that = this;
     wx.createMapContext('map').moveToLocation();
     this.getLocation();
-    
   },
 
   /**
@@ -190,6 +189,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-})
+  }
+    })}})
