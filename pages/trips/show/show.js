@@ -47,10 +47,14 @@ Page({
         success(res) {
           if (res.confirm) {
             that.changeTripStatus()
+            wx.redirectTo({
+              url: '/pages/trips/create/create',
+            })
           }
         }
       })
     } else {
+      
       that.changeTripStatus()
     }
   },
@@ -60,15 +64,17 @@ Page({
     const { trip } = this.data
     console.log('thistrp',trip)
     const tripData = { active: !trip.active }
-    wx.showLoading()
+    console.log(tripData)
+    // wx.showLoading()
     wx.request({
       url: `${getApp().getHost()}trips/${trip.id}`,
       method: 'PUT',
       data: { trip: tripData },
       success(res) {
-        trip.active = res.data.trip.active
-        that.setData({ trip })
-        wx.hideLoading()
+        // console.log(res)
+        // trip.active = res.data.trip.active
+        // that.setData({ trip })
+        // wx.hideLoading()
       }
     })
   },

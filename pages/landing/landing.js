@@ -5,30 +5,55 @@ Page({
    * Page initial data
    */
   data: {
-    hasLastestTrip: false,
+    hasLatestTrip: false,
   },
 
   goToNextPage() {
-    if (hasLastestTrip){
-      wx.navigateTo({
-        url: '/pages/trips/...',
-      })
-    }else{
-      wx.navigateTo({
-        url: '/pages/trips/create/create',
-      })
-    }
+
+    console.log('globaldata',getApp().globalData)
+    const user_id = getApp().globalData.userId
+    wx.request({
+      url: `${getApp().getHost()}users/${user_id}/last_trip`,
+      method: 'GET',
+      success(res) {
+        console.log('res from last trip',res)
+        let activeTrip = res.data.trip.active
+        if (activeTrip){
+          wx.navigateTo({
+            url: `/pages/trips/show/show?id=${res.data.trip.id}`,
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/trips/create/create',
+          })
+        }
+        
+      }
+
+    })
+
+
+    // if (1 === 2){
+    //   wx.navigateTo({
+    //     url: '/pages/trips/...',
+    //   })
+    // }else{
+    //   wx.navigateTo({
+    //     url: '/pages/trips/create/create',
+    //   })
+    // }
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // Fetch the last trip from the backend by user_id 
+    
+    // 
+    // Fetch the last trip from the backend by user_id wx.request
     // Check the active attr of that trip
     // if active === true 
        //-> this.setData({hasLastestTrip: true})
-    //
   },
 
   /**
