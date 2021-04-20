@@ -7,7 +7,8 @@ Page({
     tripStarted: false,
     listView: true,
     scale: 14,
-    markers: []
+    markers: [],
+    current: 0
   },
 
   changeView() {
@@ -15,6 +16,7 @@ Page({
   },
 
   markertap(e) {
+    console.log(e)
     const stopId = e.detail.markerId
     const { stops } = this.data.trip
     const selectedId = stops.findIndex(s=>s.id==stopId)

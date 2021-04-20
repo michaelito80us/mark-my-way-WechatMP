@@ -10,8 +10,8 @@
   id="map" 
   subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD" 
   class="map-plan-trip" 
-  longitude="{{selectedLocation.longitude}}" 
-  latitude="{{selectedLocation.latitude}}" 
+  longitude="{{longitude}}" 
+  latitude="{{latitude}}" 
   scale="14" 
   bindregionchange="regionChange" 
   show-location>

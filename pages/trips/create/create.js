@@ -72,22 +72,22 @@ Page({
   },
 
   regionChange(e) {
-    const { causedBy, type } = e.detail
-    if (causedBy == 'drag' && type == 'end' ) {
-      this.reverseGeocode()
+    if (e.causedBy == 'drag' && e.type == 'end' ) {
+      this.reverseGeocoder();
     }
   },
 
-  reverseGeocode() {
+  reverseGeocoder() {
+    console.log('reverse geo')
     const that = this
     this.mapCtx = wx.createMapContext('map')
     this.mapCtx.getCenterLocation({
       type: 'gcj02',
       success(res) {
         const { latitude, longitude } = res
+        console.log('latitude', latitude)
+        console.log('longitude', longitude)
         const selectedLocation = { latitude, longitude }
-        console.log('lattttitttude',res.longitude)
-        console.log(res.latitude)
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
           success(res) {
@@ -106,7 +106,11 @@ Page({
       success: function (res) {
         const { latitude, longitude } = res
         console.log('this location here',res)
-        const selectedLocation = { latitude, longitude }
+        // const selectedLocation = { latitude, longitude }
+        that.setData({
+          latitude: latitude,
+          longitude: longitude
+        })
 
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
@@ -115,12 +119,12 @@ Page({
           }
         })
 
-        wx.createMapContext('map').moveToLocation({
-          latitude, longitude
-        })
-        that.setData({ selectedLocation })        
-      }
-    })
+    //     wx.createMapContext('map').moveToLocation({
+    //       latitude, longitude
+    //     })
+    //     that.setData({ selectedLocation })        
+    //   }
+    // })
   },
 
   getMapCenter() {
@@ -136,15 +140,9 @@ Page({
   },
 
   bindcontroltap(e) {
-    var that = this;
-    if (e.controlId == 1) {
-      that.setData({
-        latitude: this.data.latitude,
-        longitude: this.data.longitude,
-        scale: 14,
-      })
-    }
-    
+    const that = this;
+    wx.createMapContext('map').moveToLocation();
+    this.getLocation();
   },
 
   /**
@@ -194,6 +192,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-})
+  }
+    })}})
