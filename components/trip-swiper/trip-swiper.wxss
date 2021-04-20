@@ -11,12 +11,12 @@
   box-sizing: border-box;
 }
 
-.map {
-  height: 60vh;
+/* .map {
+  height: 80vh;
   width: 100%
-}
+} */
 .card-stop {
-  height: 30vh;
+  height: 20vh;
   padding: 20rpx;
   display: flex;
   flex-direction: column;

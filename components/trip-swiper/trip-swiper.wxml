@@ -1,7 +1,7 @@
-<swiper previous-margin="30rpx" style="width: 100%; height: 350px;" class="stop-swiper">
+<swiper previous-margin="30rpx" style="width: 100%;" class="stop-swiper">
   <swiper-item wx:for="{{stops}}" wx:key="index" style="height: 100%;">
     <view class="card-stop" bindtap="goToStopDetail" data-id="{{item.id}}">
-      <view class="card-content">
+      <view class="card-content" style="padding: 0 20rpx;">
         <image src="{{item.photos[0]}}" class="card-img"/>
         <view class="card-stop-infos">
           <view class="h2">{{item.name}}</view>
