@@ -103,7 +103,11 @@ Page({
       success: function (res) {
         const { latitude, longitude } = res
         console.log('this location here',res)
-        const selectedLocation = { latitude, longitude }
+        // const selectedLocation = { latitude, longitude }
+        that.setData({
+          latitude: latitude,
+          longitude: longitude
+        })
 
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
