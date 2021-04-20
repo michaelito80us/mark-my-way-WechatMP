@@ -86,6 +86,8 @@ Page({
       success(res) {
         const { latitude, longitude } = res
         const selectedLocation = { latitude, longitude }
+        console.log('lattttitttude',res.longitude)
+        console.log(res.latitude)
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
           success(res) {
@@ -100,8 +102,10 @@ Page({
   getLocation(){
     const that = this
     wx.getLocation({
+      type: 'gcj02',
       success: function (res) {
         const { latitude, longitude } = res
+        console.log('this location here',res)
         const selectedLocation = { latitude, longitude }
 
         qqmapsdk.reverseGeocoder({

@@ -84,7 +84,7 @@ Page({
   getCurrentLocation() {
     var that = this
     wx.getLocation({
-      type: 'wgs84', 
+      type: 'gcj02', 
       success: function (res) {
         that.setData({
           latitude: res.latitude,
@@ -99,7 +99,7 @@ Page({
     const markers = stops.map(stop=>{
       return { 
         id: stop.id, 
-        latitude: stop.lat, longitude: stop.lon, 
+        latitude: stop.lat - 0.001663048, longitude: stop.lon + 0.004557321, 
         iconPath: '/images/pin.png',
         width: 40,
         height: 40,
