@@ -28,8 +28,8 @@
     
     <view class="map-footer">
 
-      <button class="button" wx:if="{{listView}}" bindtap="">Start Trip</button>
-      <button class="button" wx:else bindtap="">End Trip</button>
+      <button class="button" wx:if="{{listView === true && trip.active === false}}" bindtap="startTrip">Start Trip</button>
+      <button class="button" wx:if="{{listView === true && trip.active === true}}" bindtap="startTrip">End Trip</button>
 
       <!-- <view wx:if="{{selectedStop}}" class="nav-btn" bindtap="showRoute">Show route</view> -->
     </view>

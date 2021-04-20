@@ -41,16 +41,20 @@ Page({
     const { trip } = this.data
     if (trip.active) {
       wx.showModal({
-        content: 'Stop your trip?',
+        content: 'End your trip?',
         confirmText: 'Confirm',
         cancelText: 'Back',
         success(res) {
           if (res.confirm) {
             that.changeTripStatus()
+            wx.redirectTo({
+              url: '/pages/trips/create/create',
+            })
           }
         }
       })
     } else {
+      
       that.changeTripStatus()
     }
   },
@@ -58,21 +62,26 @@ Page({
   changeTripStatus() {
     const that = this
     const { trip } = this.data
+    console.log('thistrp',trip)
     const tripData = { active: !trip.active }
-    wx.showLoading()
+    console.log(tripData)
+    // wx.showLoading()
     wx.request({
       url: `${getApp().getHost()}trips/${trip.id}`,
       method: 'PUT',
       data: { trip: tripData },
       success(res) {
-        trip.active = res.data.trip.active
-        that.setData({ trip })
-        wx.hideLoading()
+        // console.log(res)
+        // trip.active = res.data.trip.active
+        // that.setData({ trip })
+        // wx.hideLoading()
       }
     })
   },
 
   go() {
+    const that = this
+    that.startTrip()
     wx.navigateTo({
       url: '/pages/trip-stop/show',
     })
