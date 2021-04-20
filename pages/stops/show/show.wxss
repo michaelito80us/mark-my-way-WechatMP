@@ -24,11 +24,13 @@
 
 .h2 {
   font-size: large;
+  color: rgba(25, 0, 233, 1.00);
+  padding: 10rpx;
 }
 
 .row {
   display: flex;
-  padding: 12rpx 0;
+  padding: 6rpx 0;
   color: rgba(26, 0, 233, 1.00)
 }
 
@@ -39,8 +41,8 @@
 }
 
 .stop-detail-icon {
-  height: 50rpx;
-  width: 50rpx;
+  height: 40rpx;
+  width: 40rpx;
   margin-right: 8rpx
 }
 
@@ -48,4 +50,5 @@
   color: rgb(43, 43, 43);
   padding: 6rpx 12rpx;
   line-height: 1.4;
+  color: rgba(60, 64, 67, 1.00)
 }

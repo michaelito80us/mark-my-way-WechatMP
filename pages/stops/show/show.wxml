@@ -19,14 +19,9 @@
       </swiper>
   </view>
 
-  <view class="row-title">
-    <view class="h2 bold">{{stop.name}}</view>
-    <view class="container-stop">
-      <view class="tag thin">{{stop.category}}</view>
-    </view>
+ 
+  <view class="h2 bold">{{stop.name}}</view>
     
-  </view>
-
   <view class="row">
     <image class="stop-detail-icon" src="/images/location_point.svg"></image>
     <view class="">{{stop.address}}</view>
@@ -35,6 +30,11 @@
   <view class="row">
     <image class="stop-detail-icon" src="/images/time_duration.svg"></image>
     <view class="">suggested duration: {{stop.visit_time}} mins</view>
+  </view>
+
+  <view class="row">
+    <image class="stop-detail-icon" src="/images/tag.svg"></image>
+    <view class="">{{stop.category}}</view>
   </view>
 
   <view class="p">
