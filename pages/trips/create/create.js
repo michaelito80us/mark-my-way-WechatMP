@@ -72,18 +72,21 @@ Page({
   },
 
   regionChange(e) {
-    if (e.causedBy == 'drag' && e.causedBytype == 'end' ) {
-      this.reverseGeocode()
+    if (e.causedBy == 'drag' && e.type == 'end' ) {
+      this.reverseGeocoder();
     }
   },
 
   reverseGeocoder() {
+    console.log('reverse geo')
     const that = this
     this.mapCtx = wx.createMapContext('map')
     this.mapCtx.getCenterLocation({
       type: 'gcj02',
       success(res) {
         const { latitude, longitude } = res
+        console.log('latitude', latitude)
+        console.log('longitude', longitude)
         const selectedLocation = { latitude, longitude }
         qqmapsdk.reverseGeocoder({
           location: { latitude, longitude },
