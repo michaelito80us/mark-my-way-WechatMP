@@ -103,6 +103,7 @@ Page({
 
   getLocation(){
     const that = this
+    console.log('GET LOCATION')
     wx.getLocation({
       type: 'gcj02',
       success: function (res) {
@@ -122,12 +123,13 @@ Page({
           }
         })
       
-    //     wx.createMapContext('map').moveToLocation({
-    //       latitude, longitude
-    //     })
-    //     that.setData({ selectedLocation })        
-    //   }
-    // })
+      
+        // wx.createMapContext('map').moveToLocation({
+        //   latitude, longitude
+        // })
+        // that.setData({ selectedLocation })        
+      }
+    })
   },
 
   getMapCenter() {
@@ -146,56 +148,5 @@ Page({
     const that = this;
     wx.createMapContext('map').moveToLocation();
     this.getLocation();
-  },
-
-  
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function(e) {
-  //  this.mapCtx = wx.createMapContext('map')
-   },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
   }
-    })}})
+})

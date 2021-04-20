@@ -9,11 +9,12 @@
 
   <view class="list">
     <view style="padding: 0 20rpx;">
-      <view class="title">
+    
+      
+      <scroll-view scroll-y="true" scroll-top="2" show-scrollbar="false" enhanced="true" style="height: 35vh; border-radius: 8px;" wx:if="{{listView}}">
+        <view class="title">
         <view class="trip">Itinerary</view>
       </view>
-      
-      <scroll-view scroll-y="true" scroll-top="2" show-scrollbar="false" enhanced="true" style="height: 28vh; border-radius: 8px;" wx:if="{{listView}}">
         <view class="card">
           <view class="section" wx:for="{{trip.stops}}" wx:key="index">
             <view class="name">{{item.name}}</view>
@@ -25,10 +26,11 @@
     
     <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" current="{{current}}" />
     
-    <view class="map-footer" wx:if="{{listView}}">
+    <view class="map-footer">
 
       <button class="button" wx:if="{{listView === true && trip.active === false}}" bindtap="startTrip">Start Trip</button>
       <button class="button" wx:if="{{listView === true && trip.active === true}}" bindtap="startTrip">End Trip</button>
+
       <!-- <view wx:if="{{selectedStop}}" class="nav-btn" bindtap="showRoute">Show route</view> -->
     </view>
   </view>

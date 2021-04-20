@@ -2,14 +2,20 @@
 <swiper next-margin="40rpx" style="width: 100%;" class="stop-swiper" current="{{current}}">
   <swiper-item wx:for="{{stops}}" wx:key="index" style="height: 100%;">
 
-    <view class="card-stop" bindtap="goToStopDetail" data-id="{{item.id}}">
+    <view class="card-stop">
       <view class="card-content" style="padding: 0 20rpx;">
-        <image src="{{item.photos[0]}}" class="card-img"/>
+        <image src="{{item.photos[0]}}" class="card-img" data-id="{{item.id}}" bindtap="goToStopDetail"/>
         <view class="card-stop-infos">
-          <view class="h2">{{item.name}}</view>
-          <view class="p thin">Visit time: {{item.visit_time}} min</view>
+          <view bindtap="goToStopDetail" data-id="{{item.id}}">
+            <view class="h2">{{item.name}}</view>
+            <view class="p thin">Visit time: {{item.visit_time}} min</view> 
+          </view>
+          <view bindtap="showRoute" class="btn-dir" data-stop="{{item}}">
+            <image src="/images/direction.svg"></image>
+          </view>
         </view>
       </view>
     </view>
   </swiper-item>
 </swiper> 
+
