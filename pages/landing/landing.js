@@ -5,20 +5,30 @@ Page({
    * Page initial data
    */
   data: {
-
+    hasLastestTrip: false,
   },
 
-  goToHomePage() {
-    wx.navigateTo({
-      url: '/pages/trips/create/create',
-    })
+  goToNextPage() {
+    if (hasLastestTrip){
+      wx.navigateTo({
+        url: '/pages/trips/...',
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/trips/create/create',
+      })
+    }
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    // Fetch the last trip from the backend by user_id 
+    // Check the active attr of that trip
+    // if active === true 
+       //-> this.setData({hasLastestTrip: true})
+    //
   },
 
   /**

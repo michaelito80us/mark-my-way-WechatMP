@@ -1,4 +1,4 @@
-<view class="landing-background" bindtap="goToHomePage" style="background-image: url('https://images.unsplash.com/photo-1508482059928-cc2a22253db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80')">
+<view class="landing-background" bindtap="goToNextPage" style="background-image: url('https://images.unsplash.com/photo-1508482059928-cc2a22253db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80')">
   <view class="container">
     <view class="landing-content">
     <view class="landing-title">Mark My Way</view>
