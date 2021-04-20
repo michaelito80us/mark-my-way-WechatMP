@@ -11,11 +11,11 @@
     </view>
   </view>
 
-  <view class="landing-bottom">
+  <!-- <view class="landing-bottom">
     <view class="arrow">
       <image class='btn-arrow-3' bindtap="goToHomePage" src="/images/ArrowWhite.svg"></image>
-    </view>
-  </view>
+    </view> -->
+  <!-- </view> -->
     
   </view>
 
