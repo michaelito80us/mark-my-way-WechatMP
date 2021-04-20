@@ -33,7 +33,8 @@ Page({
   },
 
   goToTripStopList() {
-    const { latitude, longitude } = this.data.selectedLocation
+    const { latitude } = this.data
+    const { longitude } = this.data
     const { duration } = this.data
     const url = getApp().getHost()+'trips'
     const trip = { 
@@ -42,6 +43,7 @@ Page({
       start_lon: longitude, 
       user_id: getApp().globalData.userId 
     }
+    console.log(trip)
     wx.request({
       url, method: 'POST', data: { trip },
       success(res){
@@ -118,7 +120,7 @@ Page({
             that.setData({ addressDetails: res.result.address })
           }
         })
-
+      
     //     wx.createMapContext('map').moveToLocation({
     //       latitude, longitude
     //     })
@@ -144,6 +146,8 @@ Page({
     wx.createMapContext('map').moveToLocation();
     this.getLocation();
   },
+
+  
 
   /**
    * Lifecycle function--Called when page is initially rendered
