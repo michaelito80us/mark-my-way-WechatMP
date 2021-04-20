@@ -138,13 +138,8 @@ Page({
 
   bindcontroltap(e) {
     var that = this;
-    if (e.controlId == 1) {
-      that.setData({
-        latitude: this.data.latitude,
-        longitude: this.data.longitude,
-        scale: 14,
-      })
-    }
+    wx.createMapContext('map').moveToLocation();
+    this.getLocation();
     
   },
 
