@@ -7,7 +7,9 @@ Page({
     hours: '2 hours',
     minutes: '30 mins',
     hours: ['0 hours','1 hour','2 hours','3 hours','4 hours','5 hours','6 hours','7 hours','8 hours','9 hours','10 hours'],
-    minutes: ['0 mins','15 mins','30 mins','45 mins']
+    minutes: ['0 mins','15 mins','30 mins','45 mins'],
+    tags: [{name: 'Park', selected: false }, {name: 'Architecture', selected: false }, {name: 'Shopping', selected: false },{name: 'Historical Site', selected: false },{name: 'Entertainment', selected: false },{name: 'Theatre', selected: false },{name: 'Art Galleries', selected: false }, {name: 'Museum', selected: false }],
+    showPopUp: false,
   },
 
   changePicker(e) {
@@ -43,9 +45,11 @@ Page({
       start_lon: longitude, 
       user_id: getApp().globalData.userId 
     }
+    const categories = this.data.tagsArray || []
+
     console.log(trip)
     wx.request({
-      url, method: 'POST', data: { trip },
+      url, method: 'POST', data: { trip, categories},
       success(res){
         console.log("am I gonna walk?", res)
         if(res.statusCode === 200) {
@@ -148,5 +152,26 @@ Page({
     const that = this;
     wx.createMapContext('map').moveToLocation();
     this.getLocation();
+  },
+
+  tagSelected(e) {
+    const tagIndex = e.currentTarget.dataset.index
+    const tags = this.data.tags
+    tags[tagIndex].selected = !tags[tagIndex].selected
+    this.setData({tags})
+
+    let tagsArray =[]
+    for (let i = 0; i < tags.length; i++) {
+      if (tags[i].selected){
+        tagsArray.push(tags[i].name)
+      }
+    }
+    this.setData({tagsArray})
+  },
+
+  tagPopUp() {
+    const showPopUp = this.data.showPopUp;
+    this.setData({showPopUp:!showPopUp})
   }
+
 })

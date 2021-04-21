@@ -29,7 +29,7 @@
 
   <view class="row">
     <image class="stop-detail-icon" src="/images/time_duration.svg"></image>
-    <view class="">suggested duration: {{stop.visit_time}} mins</view>
+    <view class="">Visit time: {{stop.visit_time}} mins</view>
   </view>
 
   <view class="row">
