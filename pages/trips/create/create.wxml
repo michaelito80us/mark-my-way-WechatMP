@@ -2,9 +2,6 @@
 
 <view class="container">
 
-  <!-- <view class="map">
-    <image src="/images/map-demo.jpg" style="height:100%"></image>
-  </view> -->
 
   <map 
   id="map" 
@@ -15,19 +12,38 @@
   scale="14" 
   bindregionchange="regionChange" 
   show-location>
-    <cover-image class="map-pin" src="/images/pin.png"></cover-image>
+    <cover-image class="start-point" src="/images/start-point.png"></cover-image>
+  
+    <cover-view>
+      <cover-view class="start-add">{{addressDetails}} </cover-view>
+    </cover-view>
 
     <cover-image class="map-cur" src="/images/location-cur.png" bindtap="getLocation"></cover-image>
   </map>
 
   <view>
+    <page-container 
+        show="{{showPopUp}}"
+        round="true"
+        overlay="true"
+        position="bottom"
+        close-on-slide-down="false"
+        custom-style="height: 40%; z-index:99"
+      >
+        <view class="detail-page">
+          <view class="tag-container">
+            <block wx:for="{{tags}}" wx:key="{{index}}">
+              <view class="tag-box {{item.selected? 'tag-box-selected': ''}}" bindtap="tagSelected" data-index="{{index}}">{{item.name}}</view>
+            </block>
+          </view>
+          <button class="button" bindtap="tagPopUp" style="margin-top:60rpx">confirm</button>
+        </view>
+    </page-container>
+    
     <form bindsubmit="">
-      <view class="start-section">
-        <view class="start_point bold">Start Point</view>
-        <input name="current_point" placeholder="your location" value="{{addressDetails}}" placeholder-class="roboto" />
-      </view>
 
       <view class="duration-section">
+
         <view class="bold">Duration</view>
 
         <picker-view class="picker-container" bindchange="changePicker" indicator-style="height: 30px; width: 100px; line-height: 30px; ">
@@ -40,6 +56,9 @@
         </picker-view>
 
       </view>
+
+      <button class="btn-opt" bindtap="tagPopUp">Category (optional)</button>
+
     </form>
   </view>
 
