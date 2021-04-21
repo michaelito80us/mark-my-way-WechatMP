@@ -97,7 +97,7 @@
   color:#0044e0;
   border-radius: 50px;
   margin-top: 8px;
-  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.2) 11.2%, rgba(108,124,235,0.2) 55.5%, rgba(219,82,244,0.2) 99.4% );
+  background-color:white;
 }
 
 .detail-page {
