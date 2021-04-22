@@ -24,8 +24,8 @@ Page({
           console.log('im here')
             wx.showModal({
             content: 'You have an ongoing trip',
-            confirmText: 'Go',
-            cancelText: 'New trip',
+            confirmText: 'Continue',
+            cancelText: 'New Trip',
             success(res) {
               if (res.confirm) {
                 wx.navigateTo({

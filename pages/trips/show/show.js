@@ -106,10 +106,10 @@ Page({
    */
   onLoad: function (options) {
     this.getTrip()
-    this.getCurrentLocation()
   },
 
   getCurrentLocation() {
+    console.log('getcurrentLocation')
     var that = this
     wx.getLocation({
       type: 'gcj02', 
@@ -124,8 +124,9 @@ Page({
   },
 
   loadMap() {
-    const { stops } = this.data.trip
-    console.log(stops)
+    console.log('skksksk', this.data)
+    const stops = this.data.trip.stops
+    console.log(this.data.trip)
     const markers = stops.map(stop=>{
       let category = stop.category.toLowerCase().split(' ').join('');
       return { 
@@ -171,12 +172,18 @@ Page({
     })
   },
 
-  getTrip() {
+  getTrip: function() {
+    console.log('gettrip')
     const that = this
     wx.request({
       url: `${getApp().getHost()}trips/${that.options.id}`,
       success(res) {
+        console.log('trip res', res)
         that.setData({ trip: res.data.trip })
+        that.getCurrentLocation();
+      },
+      complete(err) {
+        return err
       }
     })
   }

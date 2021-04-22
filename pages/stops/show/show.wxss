@@ -23,7 +23,7 @@
 }
 
 .h2 {
-  font-size: large;
+  font-size: 40rpx;
   color: rgba(25, 0, 233, 1.00);
   padding: 10rpx;
 }
