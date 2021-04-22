@@ -47,7 +47,7 @@ Page({
     }
     const categories = this.data.tagsArray || []
 
-    console.log(trip)
+    console.log(trip, categories)
     wx.request({
       url, method: 'POST', data: { trip, categories},
       success(res){
