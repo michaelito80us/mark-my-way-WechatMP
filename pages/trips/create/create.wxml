@@ -57,7 +57,12 @@
 
       </view>
 
-      <button class="btn-opt" bindtap="tagPopUp">Categories (optional)</button>
+      <button wx:if="{{!tagsArray || tagsArray.length === 0}}" class="btn-opt" bindtap="tagPopUp">
+        Categories (optional)
+      </button>
+      <button wx:else class="btn-opt" bindtap="tagPopUp">
+        {{tagsArray.length}} selected
+      </button>
 
     </form>
   </view>

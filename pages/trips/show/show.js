@@ -11,6 +11,12 @@ Page({
     
   },
 
+  goBack(){
+    wx.navigateTo({
+      url: '/pages/trips/create/create',
+    })
+  },
+
   changeView() {
     this.setData({ listView: !this.data.listView })
   },
@@ -111,7 +117,8 @@ Page({
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
-        })
+        });
+        that.loadMap();
       }
     })
   },
@@ -142,6 +149,12 @@ Page({
     let that = this
     var mapCtx = wx.createMapContext("map");
     let includePointsData = []
+    const curLocation = {
+      latitude: this.data.latitude,
+      longitude: this.data.longitude
+    }
+    includePointsData.push(curLocation)
+    
     let {stops} = that.data.trip
     for (let i = 0; i < stops.length; i++) {
       includePointsData.push({
@@ -162,7 +175,6 @@ Page({
       url: `${getApp().getHost()}trips/${that.options.id}`,
       success(res) {
         that.setData({ trip: res.data.trip })
-        that.loadMap()
       }
     })
   }
