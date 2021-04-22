@@ -1,3 +1,6 @@
+const QQMapWX = require("../../../libs/qqmap-wx-jssdk")
+var qqmapsdk;
+
 // pages/trip/show/show.js
 Page({
   /**
@@ -41,6 +44,11 @@ Page({
       name: selectedStop.name, 
       address: selectedStop.address
     })
+
+  
+  
+  
+    
   },
 
   startTrip() {
@@ -105,7 +113,10 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getTrip()
+    this.getTrip();
+    qqmapsdk = new QQMapWX({
+      key: 'XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD'
+    });
   },
 
   getCurrentLocation() {
@@ -121,6 +132,8 @@ Page({
         that.loadMap();
       }
     })
+
+    
   },
 
   loadMap() {
@@ -169,6 +182,18 @@ Page({
     mapCtx.includePoints({
       padding: [ 100, 80, 100, 80],
       points: includePointsData
+    })
+  },
+
+  setPl(e) {
+    console.log(e);
+    let pl = e.detail;
+    this.setData({
+      polyline: [{
+        points: pl,
+        color: '#FF0000DD',
+        width: 4
+      }]
     })
   },
 
