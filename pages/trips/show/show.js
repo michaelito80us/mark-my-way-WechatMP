@@ -118,13 +118,15 @@ Page({
 
   loadMap() {
     const { stops } = this.data.trip
+    console.log(stops)
     const markers = stops.map(stop=>{
+      let category = stop.category.toLowerCase().split(' ').join('');
       return { 
         id: stop.id, 
         latitude: stop.lat - 0.001663048, longitude: stop.lon + 0.004557321, 
-        iconPath: '/images/pin.png',
-        width: 40,
-        height: 40,
+        iconPath: `/images/${category}.png`,
+        width: 30,
+        height: 48,
         callout: {
           content: stop.name,
           fontSize: 16,
