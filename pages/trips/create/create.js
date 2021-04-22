@@ -8,7 +8,7 @@ Page({
     minutes: '30 mins',
     hours: ['0 hours','1 hour','2 hours','3 hours','4 hours','5 hours','6 hours','7 hours','8 hours','9 hours','10 hours'],
     minutes: ['0 mins','15 mins','30 mins','45 mins'],
-    tags: [{name: 'Park', selected: false }, {name: 'Architecture', selected: false }, {name: 'Shopping', selected: false },{name: 'Historical Site', selected: false },{name: 'Entertainment', selected: false },{name: 'Theatre', selected: false },{name: 'Art Galleries', selected: false }, {name: 'Museum', selected: false }],
+    tags: [{name: 'Park', selected: false }, {name: 'Architecture', selected: false }, {name: 'Shopping', selected: false },{name: 'Historical Site', selected: false },{name: 'Entertainment', selected: false },{name: 'BS', selected: false},{name: 'Theatre', selected: false },{name: 'Art Galleries', selected: false }, {name: 'Museum', selected: false }],
     showPopUp: false,
   },
 
