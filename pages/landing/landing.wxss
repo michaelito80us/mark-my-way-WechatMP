@@ -12,6 +12,7 @@
   font-size: 80rpx;
   font-weight: bold;
   margin-top: 800rpx;
+  text-shadow: 0 0 2px rgb(43, 43, 43);
 }
 
 .landing-title-small{
@@ -36,6 +37,7 @@
   font-size: 45rpx;
   padding: 150rpx;
   text-align: center;
+  text-shadow: 0 0 4px black;
 }
 .arrow{
   display:flex;

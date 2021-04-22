@@ -57,7 +57,7 @@
 
       </view>
 
-      <button class="btn-opt" bindtap="tagPopUp">Category (optional)</button>
+      <button class="btn-opt" bindtap="tagPopUp">Categories (optional)</button>
 
     </form>
   </view>

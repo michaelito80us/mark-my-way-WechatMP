@@ -25,7 +25,7 @@
   border-radius: 8rpx;
   /* border: 1px solid #0044e0; */
   box-sizing: border-box;
-  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.15) 11.2%, rgba(108,124,235,0.15) 55.5%, rgba(219,82,244,0.15) 99.4% );
+  background-image: linear-gradient( 109.6deg, rgba(102,169,235,0.3) 11.2%, rgba(108,124,235,0.3) 55.5%, rgba(219,82,244,0.3) 99.4% );
   /* box-shadow: 0 0 15px rgba(0, 68, 224, 1.00) */
 }
 

@@ -1,5 +1,5 @@
 
-<swiper next-margin="40rpx" style="width: 100%;" class="stop-swiper" current="{{current}}">
+<swiper previous-margin="60rpx" next-margin="60rpx" style="width: 100%;" class="stop-swiper" current="{{current}}">
   <swiper-item wx:for="{{stops}}" wx:key="index" style="height: 100%;">
 
     <view class="card-stop">
