@@ -18,19 +18,34 @@ Page({
       success(res) {
         console.log('res from last trip',res)
         let activeTrip = res.data.trip.active
-        if (activeTrip){
-          wx.navigateTo({
-            url: `/pages/trips/show/show?id=${res.data.trip.id}`,
+        let trip_id = res.data.trip.id
+
+        if (activeTrip) {
+          console.log('im here')
+            wx.showModal({
+            content: 'You have an ongoing trip',
+            confirmText: 'Go',
+            cancelText: 'New trip',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: `/pages/trips/show/show?id=${trip_id}`,
+                })
+              } else if (res.cancel) {
+                wx.navigateTo({
+                  url: '/pages/trips/create/create',
+                })
+              }
+            }
           })
-        }else{
+        } else{
           wx.navigateTo({
             url: '/pages/trips/create/create',
           })
         }
-        
       }
-
     })
+  },
 
 
     // if (1 === 2){
@@ -42,7 +57,7 @@ Page({
     //     url: '/pages/trips/create/create',
     //   })
     // }
-  },
+  // },
 
   /**
    * Lifecycle function--Called when page load
