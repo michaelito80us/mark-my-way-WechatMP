@@ -33,7 +33,8 @@
         <view class="detail-page">
           <view class="tag-container">
             <block wx:for="{{tags}}" wx:key="{{index}}">
-              <view class="tag-box {{item.selected? 'tag-box-selected': ''}}" bindtap="tagSelected" data-index="{{index}}">{{item.name}}</view>
+              <view wx:if="{{index !== 5}}" class="tag-box {{item.selected? 'tag-box-selected' : ''}}" bindtap="tagSelected" data-index="{{index}}">{{item.name}}</view>
+              <view wx:else class="tag-box tag-box-bs" bindtap="tagSelected" data-index="{{index}}">{{item.name}}</view>
             </block>
           </view>
           <button class="button" bindtap="tagPopUp" style="margin-top:60rpx">confirm</button>

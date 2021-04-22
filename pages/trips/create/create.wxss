@@ -119,6 +119,11 @@
   color: gray;
 }
 
+.tag-box-bs {
+  border: 1px solid rgb(255, 255, 255);
+  color: white
+}
+
 .tag-box-selected {
   border: 1px solid  #6c7ceb;
   color:#0044e0;
