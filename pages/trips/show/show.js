@@ -191,8 +191,9 @@ Page({
     this.setData({
       polyline: [{
         points: pl,
-        color: '#FF0000DD',
-        width: 4
+        color: '#0044e0',
+        width: 6,
+        
       }]
     })
   },
