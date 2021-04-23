@@ -41,14 +41,15 @@
 }
 
 .stop-detail-icon {
-  height: 40rpx;
-  width: 40rpx;
+  height: 35rpx;
+  width: 35rpx;
   margin-right: 8rpx
 }
 
 .p {
   color: rgb(43, 43, 43);
-  padding: 12rpx 10rpx;
+  padding: 35rpx 10rpx;
   line-height: 1.4;
-  color: rgba(60, 64, 67, 1.00)
+  color: rgba(60, 64, 67, 1.00);
+  font-weight: 400;
 }

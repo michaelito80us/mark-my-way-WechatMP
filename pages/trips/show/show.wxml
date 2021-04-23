@@ -1,6 +1,6 @@
 <view class="trip-container">
   <map id="map" subkey="XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD" class="map-plan-trip"
-    longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap"  style="width:100% ; height: 60vh;" show-location>
+    longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}" bindmarkertap="markertap"  style="width:100% ; height: 60vh;" show-location polyline="{{polyline}}">
     <cover-view class="back" bindtap="goBack">
       <cover-image src='/images/back.png' class='back-img'></cover-image>
     </cover-view>
@@ -27,7 +27,7 @@
       </scroll-view>
     </view>
     
-    <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" current="{{current}}" />
+    <trip-swiper wx:if="{{!listView}}" stops="{{trip.stops}}" markers="{{markers}}" current="{{current}}" bind:markertap="markertap" latitude="{{latitude}}" longitude="{{longitude}}" bind:setPolyline='setPl' />
     
     <view class="map-footer">
 
