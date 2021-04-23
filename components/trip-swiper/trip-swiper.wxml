@@ -10,7 +10,7 @@
             <view class="h2">{{item.name}}</view>
             <view class="p thin">Visit time: {{item.visit_time}} min</view> 
           </view>
-          <view bindtap="showRoute" class="btn-dir" data-stop="{{item}}">
+          <view bindtap="showRoute" class="btn-dir" data-stop="{{item}}" data-id="{{item.id}}" >
             <image src="/images/direction.svg"></image>
           </view>
         </view>

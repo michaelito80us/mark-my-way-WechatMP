@@ -37,6 +37,8 @@ Component({
         key: 'XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD'
       });
       const {stop} = e.currentTarget.dataset
+      const id = e.currentTarget.dataset.id
+
       // wx.openLocation({
       //   latitude: stop.lat,
       //   longitude: stop.lon,
@@ -85,7 +87,13 @@ Component({
           //     width: 4
           //   }]
           // })
-          that.triggerEvent('setPolyline', pl);
+          const markers = that.properties.markers;
+          const markerIndex = markers.findIndex( s => s.id === stop.id)
+          
+          console.log('stop id', stop.id);
+          console.log('marker id', markers[markerIndex].id);
+          
+          that.triggerEvent('setPolyline', pl, stop.id);
           // that.setData({
           //   latitude:pl[0].latitude,
           //   longitude:pl[0].longitude,

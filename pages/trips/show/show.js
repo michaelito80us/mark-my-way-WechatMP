@@ -186,16 +186,24 @@ Page({
   },
 
   setPl(e) {
+    let that = this;
     console.log(e);
     let pl = e.detail;
-    this.setData({
-      polyline: [{
-        points: pl,
-        color: '#0044e0',
-        width: 6,
-        
-      }]
-    })
+    let polyline = this.data.polyline
+    if (!polyline || polyline.length === 0) {
+      that.setData({
+        polyline: [{
+          points: pl,
+          color: '#0044e0',
+          width: 6
+        }]
+      })
+    } else {
+      that.setData({
+        polyline: []
+      })
+    }
+    
   },
 
   getTrip: function() {
