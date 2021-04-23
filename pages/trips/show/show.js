@@ -25,7 +25,6 @@ Page({
   },
 
   markertap(e) {
-    console.log(e)
     const stopId = e.detail.markerId
     const { stops } = this.data.trip
     const selectedId = stops.findIndex(s=>s.id==stopId)
@@ -34,21 +33,6 @@ Page({
       current: selectedId, 
       selectedStop 
     })
-  },
-
-  showRoute() {
-    const { selectedStop } = this.data
-    wx.openLocation({
-      latitude: selectedStop.lat,
-      longitude: selectedStop.lon,
-      name: selectedStop.name, 
-      address: selectedStop.address
-    })
-
-  
-  
-  
-    
   },
 
   startTrip() {
@@ -120,7 +104,6 @@ Page({
   },
 
   getCurrentLocation() {
-    console.log('getcurrentLocation')
     var that = this
     wx.getLocation({
       type: 'gcj02', 
@@ -137,9 +120,7 @@ Page({
   },
 
   loadMap() {
-    console.log('skksksk', this.data)
     const stops = this.data.trip.stops
-    console.log(this.data.trip)
     const markers = stops.map(stop=>{
       let category = stop.category.toLowerCase().split(' ').join('');
       return { 
@@ -186,14 +167,25 @@ Page({
   },
 
   setPl(e) {
-    console.log(e);
-    let pl = e.detail;
-    this.setData({
+    let markerId = this.data.stopId
+    let that = this;
+    let {stopId} = e.detail
+    let {pl} = e.detail;
+
+    that.setData({
       polyline: [{
         points: pl,
-        color: '#FF0000DD',
-        width: 4
-      }]
+        color: '#0044e0',
+        width: 6
+      }],
+      stopId
+    })
+  },
+
+  hidePoly(){
+    console.log('hide poly')
+    this.setData({
+      polyline: []
     })
   },
 
