@@ -37,7 +37,6 @@ Component({
         key: 'XIGBZ-ZCP6F-NINJP-JYWMZ-5EBR5-NYBBD'
       });
       const {stop} = e.currentTarget.dataset
-      const id = e.currentTarget.dataset.id
 
       // wx.openLocation({
       //   latitude: stop.lat,
@@ -76,7 +75,6 @@ Component({
           for (var i = 0; i < coors.length; i += 2) {
             pl.push({ latitude: coors[i], longitude: coors[i + 1] })
           }
-          console.log(pl)
           //设置polyline属性，将路线显示出来,将解压坐标第一个数据作为起点
           // that.setData({
           //   latitude:pl[0].latitude,
@@ -87,22 +85,10 @@ Component({
           //     width: 4
           //   }]
           // })
-          const markers = that.properties.markers;
-          const markerIndex = markers.findIndex( s => s.id === stop.id)
           
-          console.log('stop id', stop.id);
-          console.log('marker id', markers[markerIndex].id);
+          let data = { pl, stopId: stop.id}
+          that.triggerEvent('setPolyline', data);
           
-          that.triggerEvent('setPolyline', pl, stop.id);
-          // that.setData({
-          //   latitude:pl[0].latitude,
-          //   longitude:pl[0].longitude,
-          //   polyline: [{
-          //     points: pl,
-          //     color: '#FF0000DD',
-          //     width: 4
-          //   }]
-          // })
         },
         fail: function (error) {
           console.error(error);
